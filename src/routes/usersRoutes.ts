@@ -109,13 +109,13 @@ router.post("/login",  (req: Request, res: Response) => {
         
         // 3. create JWT token (with user info object as payload) using JWT_SECRET_KEY
         //    (optional: save the token as part of User data)
-        const JWT_SECRET_KEY = process.env.JWT_SECRET || "forget_to_set_env_file";
+        const JWT_SECRET_KEY = process.env.JWT_SECRET || "this_is_my_secret";
         const token = jwt.sign({
             // add JWT payload data
             username: user.username,
             studentId: user.studentId,
             role: user.role,
-        }, JWT_SECRET_KEY, { expiresIn: "30m" });
+        }, JWT_SECRET_KEY, { expiresIn: "5m" });
         
         // 4. send HTTP response with JWT token
         
